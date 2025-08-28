@@ -20,6 +20,105 @@ function getCardItem(id) {
   const serviceTitle = cardID.querySelector(".title").innerText;
   const serviceNumber = cardID.querySelector(".number").innerText;
   //console.log(serviceTitle, serviceNumber);
+  return { serviceTitle, serviceNumber };
+}
+
+// -------- Copy Feature -------- //
+const copyButtons = document.querySelectorAll(".btnCopy");
+for (const button of copyButtons) {
+  //console.log(button);
+  button.addEventListener("click", function () {
+    const card = this.closest(".card");
+    const cardId = card.id;
+    //console.log(cardId);
+    const getValues = getCardItem(cardId);
+    //console.log(value);
+    const number = getValues.serviceNumber;
+    //console.log(number);
+
+    const totalCopyCount = parseInt(
+      document.getElementById("total-copyCount").innerText
+    );
+
+    const sum = totalCopyCount + 1;
+    document.getElementById("total-copyCount").innerText = sum;
+
+    navigator.clipboard
+      .writeText(number)
+      .then(() => {
+        alert(`The Copied Number is: ${number}`);
+      })
+      .catch(() => {
+        alert("Failed to copy!");
+      });
+  });
+}
+
+// -------- Call Button Feature -------- //
+const callButtons = document.querySelectorAll(".btnCall");
+for (const button of callButtons) {
+  //console.log(button);
+  button.addEventListener("click", function () {
+    const totalCoin = parseInt(document.getElementById("countCoin").innerText);
+    if (totalCoin < 20) {
+      alert("You don’t have enough coins.Minimum 20 coins are required.");
+      return;
+    } else {
+      const currentCoin = totalCoin - 20;
+      document.getElementById("countCoin").innerText = currentCoin;
+
+      const card = this.closest(".card");
+      const cardId = card.id;
+      //console.log(cardId);
+      const getValues = getCardItem(cardId);
+      //console.log(value);
+      const service = getValues.serviceTitle;
+      const number = getValues.serviceNumber;
+      alert(`Calling ${service}: ${number}`);
+
+      const now = new Date();
+      const currentTime = now.toLocaleTimeString();
+
+      const historyItem = document.createElement("div");
+      historyItem.className =
+        "bg-[#FAFAFA] rounded-lg flex justify-between items-center p-3";
+
+      const leftDiv = document.createElement("div");
+
+      const newH2 = document.createElement("h2");
+      newH2.className = "font-semibold text-xl";
+      newH2.innerText = service;
+
+      const newH3 = document.createElement("h3");
+      newH3.className = "text-[#5C5C5C] font-medium text-xl";
+      newH3.innerText = number;
+
+      const newH4 = document.createElement("h4");
+      newH4.className = "text-[#5C5C5C] font-medium text-xl";
+      newH4.innerText = currentTime;
+
+      leftDiv.appendChild(newH2);
+      leftDiv.appendChild(newH3);
+
+      historyItem.appendChild(leftDiv);
+      historyItem.appendChild(newH4);
+
+      const historyContainer = document.getElementById("history-container");
+      historyContainer.appendChild(historyItem);
+    }
+  });
+}
+// -------- Clear History Feature -------- //
+document.getElementById("btn-clear").addEventListener("click", function () {
+  document.getElementById("history-container").innerText = "";
+});
+/*
+// -------- Get Card Item Function -------- //
+function getCardItem(id) {
+  const cardID = document.getElementById(id);
+  const serviceTitle = cardID.querySelector(".title").innerText;
+  const serviceNumber = cardID.querySelector(".number").innerText;
+  //console.log(serviceTitle, serviceNumber);
   //alert(`${serviceTitle} calling: ${serviceNumber}`);
   return { serviceTitle, serviceNumber };
 }
@@ -131,6 +230,7 @@ document.getElementById("card9-btnCopy").addEventListener("click", function () {
   handleCopy(number);
 });
 
+
 // -------- Call Button Feature -------- //
 // simple process
 // document.getElementById("card1-btnCall").addEventListener("click", function () {
@@ -217,7 +317,4 @@ document.getElementById("card9-btnCall").addEventListener("click", function () {
   alert(`${value.serviceTitle} calling: ${value.serviceNumber}`);
   addToHistory(value);
 });
-// -------- Clear History Feature -------- //
-document.getElementById("btn-clear").addEventListener("click", function () {
-  document.getElementById("history-container").innerText = "";
-});
+*/

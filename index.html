@@ -22,54 +22,79 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-[#F5FFF6] w-[1920px]">
+  <body class="bg-[#F5FFF6] lg:w-[1920px]">
     <header class="bg-white">
-      <div class="py-6 px-14 flex justify-between items-center">
+      <!-- Navbar -->
+      <div
+        class="py-6 px-4 lg:px-14 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0"
+      >
+        <!-- Logo Section Left Side-->
         <div class="flex items-center gap-2">
           <img class="w-14 h-14" src="assets/logo.png" alt="" />
-          <h2 class="text-green-900 font-black text-3xl">
-            Emergency <br />
+          <h2
+            class="text-green-900 font-black text-2xl sm:text-3xl text-center sm:text-left"
+          >
+            Emergency <br class="hidden sm:block" />
             Service
           </h2>
         </div>
-        <div class="flex items-center gap-5">
+        <!-- Right Side -->
+        <div
+          class="flex flex-wrap sm:flex-nowrap items-center justify-center gap-4 sm:gap-5"
+        >
+          <!-- Heart Counter -->
           <div
-            class="flex items-center gap-2 bg-[#EDFFF1] px-9 py-3 rounded-full"
+            class="flex items-center gap-2 bg-[#EDFFF1] px-5 py-2 rounded-full"
           >
-            <p id="total-heartCount" class="text-lg font-black">0</p>
-            <img class="w-7 h-7" src="assets/heart.png" alt="" />
+            <p id="total-heartCount" class="text-base sm:text-lg font-black">
+              0
+            </p>
+            <img class="w-6 h-6 sm:w-7 sm:h-7" src="assets/heart.png" alt="" />
           </div>
+          <!-- Coin Counter -->
           <div
-            class="flex items-center gap-2 bg-[#EDFFF1] px-9 py-3 rounded-full"
+            class="flex items-center gap-2 bg-[#EDFFF1] px-5 py-2 rounded-full"
           >
-            <p class="text-lg font-black">100</p>
-            <img class="w-6 h-6" src="assets/coin.png" alt="" />
+            <p id="countCoin" class="text-base sm:text-lg font-black">100</p>
+            <img class="w-5 h-5 sm:w-6 sm:h-6" src="assets/coin.png" alt="" />
           </div>
-          <div class="bg-green-600 px-9 py-3 rounded-full">
-            <p class="text-white text-lg font-semibold">
+          <!-- Copy Counter -->
+          <div class="bg-green-600 px-5 py-2 rounded-full">
+            <p class="text-white text-base sm:text-lg font-semibold">
               <span id="total-copyCount">0</span> Copy
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Hero Section -->
       <div
-        class="bg-gradient-to-r from-[#013122] via-[#006747] to-[#013223] flex flex-col justify-center items-center py-5"
+        class="bg-gradient-to-r from-[#013122] via-[#006747] to-[#013223] flex flex-col justify-center items-center text-center py-5 px-4"
       >
-        <img class="w-24 h-24" src="assets/logo-dark.png" alt="" />
-        <h1 class="text-white text-[2.5rem] font-bold mt-3">
+        <img
+          class="w-20 h-20 sm:w-24 sm:h-24"
+          src="assets/logo-dark.png"
+          alt=""
+        />
+        <h1 class="text-white text-2xl sm:text-[2.5rem] font-bold mt-3">
           Emergency Service Directory
         </h1>
-        <p class="text-white text-xl font-semibold mt-3">
-          Government Emergency Services at Your Fingertip – A Project by
+        <p class="text-white text-base sm:text-xl font-semibold mt-3">
+          Government Emergency Services at Your Fingertip – A Project by<br
+            class="hidden sm:block"
+          />
           Government of the People’s Republic of Bangladesh
         </p>
       </div>
     </header>
     <!-- pt-12 pb-20 px-14 -->
-    <main class="w-full flex justify-between gap-7 px-14 pt-12 pb-20">
+    <main
+      class="w-full flex flex-col lg:flex-row justify-between gap-7 sm:px-6 lg:px-14 pt-12 pb-20"
+    >
       <!-- Card Section -->
-      <section class="w-3/4 grid grid-cols-3 gap-7">
+      <section
+        class="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7"
+      >
         <!-- Card-1 -->
         <div id="card1" class="card bg-base-100 shadow-xl">
           <div class="card-body">
@@ -98,13 +123,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card1-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card1-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -138,13 +163,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card2-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card2-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -178,13 +203,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card3-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card3-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -233,13 +258,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card4-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card4-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -273,13 +298,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card5-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card5-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -313,13 +338,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card6-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card6-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -353,13 +378,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card7-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card7-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -393,13 +418,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card8-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card8-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -439,13 +464,13 @@
             <div class="w-full flex gap-2">
               <button
                 id="card9-btnCopy"
-                class="btn w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
+                class="btn btnCopy w-[calc(50%-4px)] text-[#5C5C5C] text-base rounded-lg"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
                 id="card9-btnCall"
-                class="btn bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
+                class="btn btnCall bg-green-600 w-[calc(50%-4px)] text-white text-base rounded-lg"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -455,8 +480,8 @@
       </section>
 
       <!-- History Section -->
-      <section class="w-1/4">
-        <div class="card h-[1140px] bg-base-100 shadow-xl">
+      <section class="w-full lg:w-1/4 mt-10 lg:mt-0">
+        <div class="card h-[768px] lg:h-[1140px] bg-base-100 shadow-xl">
           <div class="card-body">
             <div class="flex items-center justify-between pb-4">
               <h2 class="font-medium text-xl">
